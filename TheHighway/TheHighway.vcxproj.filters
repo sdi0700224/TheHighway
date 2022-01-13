@@ -27,6 +27,15 @@
     <ClCompile Include="entrance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="toll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="digital_toll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attiki_odos.h">
@@ -36,6 +45,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="entrance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="toll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digital_toll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

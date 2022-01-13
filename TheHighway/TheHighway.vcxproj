@@ -140,14 +140,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="attiki_odos.cpp" />
+    <ClCompile Include="digital_toll.cpp" />
     <ClCompile Include="entrance.cpp" />
     <ClCompile Include="segment.cpp" />
     <ClCompile Include="TheHighway.cpp" />
+    <ClCompile Include="toll.cpp" />
+    <ClCompile Include="vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attiki_odos.h" />
+    <ClInclude Include="digital_toll.h" />
     <ClInclude Include="entrance.h" />
     <ClInclude Include="segment.h" />
+    <ClInclude Include="toll.h" />
+    <ClInclude Include="vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
