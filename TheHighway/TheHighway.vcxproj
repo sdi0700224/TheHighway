@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="attiki_odos.cpp" />
+    <ClCompile Include="entrance.cpp" />
+    <ClCompile Include="segment.cpp" />
     <ClCompile Include="TheHighway.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="attiki_odos.h" />
+    <ClInclude Include="entrance.h" />
+    <ClInclude Include="segment.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
