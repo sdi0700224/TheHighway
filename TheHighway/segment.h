@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <queue>
+#include "entrance.h"
 
 using namespace std;
 
@@ -8,11 +10,24 @@ class toll;
 
 class segment
 {
-	int K;
-	int index;
 	int NSegs;
+	int K;
+	const int Percent;
+	const int Possition;
+	
 
-	toll* entrance_toll;
-	toll* exit_toll;
+	//entrance entrance;
+	//queue <vehicle*> vehicles; //ask for this
+	const int SegmentCapacity;
+	segment* previousSegment;
+	segment* nextSegment;
+	
+
+
+public:
+
+	segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity, const int in_possition, segment* in_previous, segment* in_next);
+
+	void operate();
 };
 

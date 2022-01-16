@@ -9,9 +9,13 @@ using namespace std;
 
 class entrance
 {
-	string node;
-	vector <toll> tolls;
-	vector <digital_toll> digital_tolls;
+	const int nodeIndex;
+	vector <toll*> tolls;
+	vector <digital_toll*> digital_tolls;
+
+public:
+
+	entrance();
 
 
 

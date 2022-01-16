@@ -11,10 +11,16 @@ class attiki_odos
 	const int NSegs;
 	const int K;
 	const int Percent;
-	vector <segment> segments;
+	const int SegmentCapacity;
+	vector <segment*> segments;
 	int no_of_vehicles;
 
-	attiki_odos(const int in_NSegs, const int in_K, const int in_Percent);
+public:
+
+	attiki_odos(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity);
+	~attiki_odos();
+
+	void operate();
 
 };
 

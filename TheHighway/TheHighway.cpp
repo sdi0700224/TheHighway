@@ -1,6 +1,8 @@
 #include <iostream>
+#include <thread>
 #include <string>
 #include <vector>
+#include "attiki_odos.h"
 
 using namespace std;
 
@@ -37,7 +39,19 @@ int main(int argc, char* argv[])
         exit(-1);
     }
 
+    int SegmentCapacity;
 
+    //cout << "Plese enter Maximum Segment Capacity: ";
+    //cin >> SegmentCapacity;
+    SegmentCapacity = 100;
+    cout << endl << endl;
+
+    attiki_odos AttikiOdos(NSegs, K, Percent, SegmentCapacity);
+
+    for (int i = 0; i < N; i++)
+    {
+        AttikiOdos.operate();
+    }
 
     return 0;
 }
