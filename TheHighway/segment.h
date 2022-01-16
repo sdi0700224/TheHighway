@@ -6,8 +6,6 @@
 using namespace std;
 
 
-class toll;
-
 class segment
 {
 	int NSegs;
@@ -16,8 +14,8 @@ class segment
 	const int Possition;
 	
 
-	//entrance entrance;
-	//queue <vehicle*> vehicles; //ask for this
+	entrance entrance;
+	queue <vehicle*> vehicles; //ask for this
 	const int SegmentCapacity;
 	segment* previousSegment;
 	segment* nextSegment;

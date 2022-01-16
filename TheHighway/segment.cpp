@@ -4,7 +4,7 @@
 
 
 segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity, const int in_possition, segment* in_previous, segment* in_next) :
-	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), SegmentCapacity(in_SegmentCapacity), previousSegment(in_previous), nextSegment(in_next)
+	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), entrance(in_possition, rand() % 5, rand() % 5, in_K, in_SegmentCapacity), SegmentCapacity(in_SegmentCapacity), previousSegment(in_previous), nextSegment(in_next)
 {
 
 }

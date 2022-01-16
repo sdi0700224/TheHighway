@@ -7,19 +7,23 @@ using namespace std;
 
 class toll
 {
+protected:
+
 	int K;
+	int counter;
 	const int numberOfVehicles;
 	queue <vehicle*> waiting_vehicles;
 
 	void add();
 	void substract();
+	virtual bool limit_is_reached();
 
 public:
 
 	toll(const int in_K, const int in_numberOfVehicles);
 
-	void reload();
-	vehicle* recieve_vehicle();
+	void reinit();
+	virtual vehicle* recieve_vehicle();
 
 
 

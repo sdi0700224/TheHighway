@@ -1,7 +1,7 @@
 #include "toll.h"
 
 toll::toll(const int in_K, const int in_numberOfVehicles) :
-	K(in_K), numberOfVehicles(in_numberOfVehicles)
+	K(in_K), counter(0), numberOfVehicles(in_numberOfVehicles)
 {
 	for (int i = 0; i < in_numberOfVehicles; i++)
 	{
@@ -19,8 +19,21 @@ void toll::substract()
 	waiting_vehicles.pop();
 }
 
-void toll::reload()
+bool toll::limit_is_reached()
 {
+	if (counter < K)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+void toll::reinit()
+{
+	counter = 0;
 	while (waiting_vehicles.size() < numberOfVehicles)
 	{
 		add();
@@ -31,9 +44,19 @@ vehicle* toll::recieve_vehicle()
 {
 	if (waiting_vehicles.empty())
 	{
+		cout << "No cars are waiting on this toll.." << endl;
 		return NULL;
 	}
-	vehicle* vehicle_to_return = waiting_vehicles.front();
-	substract();
-	return vehicle_to_return;
+	if (!limit_is_reached())
+	{
+		vehicle* vehicle_to_return = waiting_vehicles.front();
+		substract();
+		counter++;
+		return vehicle_to_return;
+	}
+	else
+	{
+		cout << "Toll limit has been reached for this operation cycle.." << endl;
+		return NULL;
+	}
 }

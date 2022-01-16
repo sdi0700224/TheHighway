@@ -9,13 +9,18 @@ using namespace std;
 
 class entrance
 {
+	const int segment_capacity;
 	const int nodeIndex;
 	vector <toll*> tolls;
 	vector <digital_toll*> digital_tolls;
 
+	void reinit_all();
+
 public:
 
-	entrance();
+	entrance(const int in_index, const int toll_number, const int digital_toll_number, const int in_K, const int segment_capacity);
+
+	void operate(queue <vehicle*> vehicles);
 
 
 
