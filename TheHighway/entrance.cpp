@@ -12,8 +12,8 @@ void entrance::reinit_all()
 	}
 }
 
-entrance::entrance(const int in_index, const int in_toll_number, const int in_digital_toll_number, const int in_K, const int in_segment_capacity):
-	segment_capacity(in_segment_capacity), nodeIndex(in_index), tolls(in_toll_number), digital_tolls(in_digital_toll_number)
+entrance::entrance(const int in_index, const int in_toll_number, const int in_digital_toll_number, const int in_K, const int in_segment_capacity, const int in_NSegs):
+	segment_capacity(in_segment_capacity), nodeIndex(in_index), tolls(in_toll_number), digital_tolls(in_digital_toll_number), NSegs(in_NSegs)
 {
 }
 
@@ -31,6 +31,7 @@ void entrance::operate(queue<vehicle*> vehicles)
 			}
 
 			vehicle* recieved = tolls[i]->recieve_vehicle();
+			recieved->set_segment(nodeIndex);
 			if (recieved != NULL)
 			{
 				vehicles.push(recieved);
@@ -46,6 +47,7 @@ void entrance::operate(queue<vehicle*> vehicles)
 			}
 
 			vehicle* recieved = tolls[i]->recieve_vehicle();
+			recieved->set_segment(nodeIndex);
 			if (recieved != NULL)
 			{
 				vehicles.push(recieved);

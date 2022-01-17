@@ -12,6 +12,7 @@ protected:
 	int K;
 	int counter;
 	const int numberOfVehicles;
+	const int NSegs;
 	queue <vehicle*> waiting_vehicles;
 
 	void add();
@@ -20,7 +21,7 @@ protected:
 
 public:
 
-	toll(const int in_K, const int in_numberOfVehicles);
+	toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs);
 
 	void reinit();
 	virtual vehicle* recieve_vehicle();

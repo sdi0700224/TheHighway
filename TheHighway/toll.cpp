@@ -1,7 +1,7 @@
 #include "toll.h"
 
-toll::toll(const int in_K, const int in_numberOfVehicles) :
-	K(in_K), counter(0), numberOfVehicles(in_numberOfVehicles)
+toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
+	K(in_K), counter(0), numberOfVehicles(in_numberOfVehicles), NSegs(in_NSegs)
 {
 	for (int i = 0; i < in_numberOfVehicles; i++)
 	{
@@ -11,7 +11,7 @@ toll::toll(const int in_K, const int in_numberOfVehicles) :
 
 void toll::add()
 {
-	waiting_vehicles.push(new vehicle());
+	waiting_vehicles.push(new vehicle(rand() % (NSegs + 1), rand() % NSegs));
 }
 
 void toll::substract()
