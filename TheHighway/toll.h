@@ -22,6 +22,7 @@ protected:
 public:
 
 	toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs);
+	~toll();
 
 	void reinit();
 	virtual vehicle* recieve_vehicle();

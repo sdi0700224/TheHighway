@@ -26,6 +26,19 @@ entrance::entrance(const int in_index, const int in_toll_number, const int in_di
 	}
 }
 
+entrance::~entrance()
+{
+	for (int i = 0; i < tolls.size(); i++)
+	{
+		delete tolls[i];
+	}
+
+	for (int i = 0; i < digital_tolls.size(); i++)
+	{
+		delete digital_tolls[i];
+	}
+}
+
 void entrance::operate(vector<vehicle*> vehicles)
 {
 	bool tolls_empty = false;
