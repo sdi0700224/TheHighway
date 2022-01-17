@@ -27,13 +27,16 @@ void segment::enter()
 
 void segment::exit()
 {
-	vector<vehicle*>::iterator it;
-	for (it = vehicles.begin(); it != vehicles.end(); it++)
+	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();)
 	{
 		if ((*it)->get_destination() == Possition)
 		{
 			delete *it;
-			vehicles.erase(it--);
+			it = vehicles.erase(it);
+		}
+		else
+		{
+			it++;
 		}
 	}
 }
@@ -45,14 +48,17 @@ void segment::pass()
 		return;
 	}
 
-	vector<vehicle*>::iterator it; //using iterator in order to use vector.erase()
-	for (it = vehicles.begin(); it != vehicles.end(); it++)
+	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();)
 	{
 		if ((*it)->get_is_ready() && (*it)->get_destination() > Possition && nextSegment->get_no_of_vehicles() < nextSegment->SegmentCapacity)
 		{
 			(*it)->set_segment(Possition + 1);
 			nextSegment->vehicles.push_back(*it);
-			vehicles.erase(it--);
+			it = vehicles.erase(it);
+		}
+		else
+		{
+			it++;
 		}
 	}
 }
