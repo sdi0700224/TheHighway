@@ -78,5 +78,4 @@ int segment::operate()
 	int ending_car_number = get_no_of_vehicles();
 
 	return ending_car_number - starting_car_number;
-	return 0;
 }
