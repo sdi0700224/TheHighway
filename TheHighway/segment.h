@@ -12,11 +12,11 @@ class segment
 	int K;
 	const int Percent;
 	const int Possition;
+	const int SegmentCapacity;
 	
 
 	entrance entrance;
-	vector <vehicle*> vehicles; //ask for this
-	const int SegmentCapacity;
+	vector <vehicle*> vehicles;
 	segment* previousSegment;
 	segment* nextSegment;
 	
@@ -25,7 +25,12 @@ class segment
 public:
 
 	segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity, const int in_possition, segment* in_previous, segment* in_next);
+	~segment();
 
-	void operate(); // Ask.
+	void enter();
+	void exit();
+	void pass();
+	int get_no_of_vehicles();
+	int operate();
 };
 

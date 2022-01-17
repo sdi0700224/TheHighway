@@ -11,7 +11,7 @@ toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
 
 void toll::add()
 {
-	waiting_vehicles.push(new vehicle(rand() % (NSegs + 1), rand() % NSegs));
+	waiting_vehicles.push(new vehicle(rand() % NSegs, -1));
 }
 
 void toll::substract()

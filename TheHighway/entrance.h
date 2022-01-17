@@ -21,7 +21,7 @@ public:
 
 	entrance(const int in_index, const int toll_number, const int digital_toll_number, const int in_K, const int segment_capacity, const int in_NSegs);
 
-	void operate(queue <vehicle*> vehicles);
+	void operate(vector <vehicle*> vehicles);
 
 
 
