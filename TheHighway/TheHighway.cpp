@@ -53,8 +53,6 @@ int main(int argc, char* argv[])
         AttikiOdos.operate();
     }
 
-    
-
     return 0;
 }
 

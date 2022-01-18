@@ -15,7 +15,7 @@ class segment
 	const int SegmentCapacity;
 	
 
-	entrance entrance;
+	entrance segment_entrance;
 	vector <vehicle*> vehicles;
 	segment* previousSegment;
 	segment* nextSegment;

@@ -5,6 +5,10 @@ digital_toll::digital_toll(const int in_K, const int in_numberOfVehicles, const 
 {
 }
 
+digital_toll::~digital_toll()
+{
+}
+
 bool digital_toll::limit_is_reached()
 {
 	if (counter < 2 * K)

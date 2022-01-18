@@ -11,7 +11,7 @@ toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
 
 toll::~toll()
 {
-	for (int i = 0; i < waiting_vehicles.size(); i++)
+	while(!waiting_vehicles.empty())
 	{
 		delete waiting_vehicles.front();
 		substract();
