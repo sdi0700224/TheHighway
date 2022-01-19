@@ -3,12 +3,17 @@
 #include <string>
 #include <vector>
 #include "attiki_odos.h"
+#include "debug.h"
 
 using namespace std;
 
 
 int main(int argc, char* argv[])
 {
+    #ifdef _DEBUG
+        _CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+    #endif
+
     if (argc != 5)
     {
         cout << "Error! Wrong number of arguments!\n";

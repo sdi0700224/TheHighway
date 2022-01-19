@@ -2,6 +2,8 @@
 #include <iostream>
 #include <queue>
 #include "entrance.h"
+#include "debug.h"
+
 
 using namespace std;
 

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <queue>
 #include "vehicle.h"
+#include "debug.h"
+
 
 using namespace std;
 

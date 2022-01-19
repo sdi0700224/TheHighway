@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "segment.h"
+#include "debug.h"
 
 using namespace std;
 

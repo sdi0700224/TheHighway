@@ -1,5 +1,8 @@
 #pragma once
 #include "toll.h"
+#include "debug.h"
+
+
 class digital_toll :
     public toll
 {
