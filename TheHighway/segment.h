@@ -20,8 +20,7 @@ class segment
 	entrance segment_entrance;
 	vector <vehicle*> vehicles;
 	segment* previousSegment;
-	segment* nextSegment;
-	
+	segment* nextSegment;	
 
 
 public:
@@ -34,5 +33,8 @@ public:
 	void pass();
 	int get_no_of_vehicles();
 	int operate();
+
+	segment* set_get_previous(segment* in_previous = NULL);
+	segment* set_get_next(segment* in_next = NULL);
 };
 

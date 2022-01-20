@@ -61,7 +61,7 @@ void entrance::operate(vector<vehicle*> vehicles)
 			}
 		}
 
-		for (int i = 0; i < digital_tolls.size(); i++)
+		/*for (int i = 0; i < digital_tolls.size(); i++)
 		{
 			if (vehicles.size() >= segment_capacity)
 			{
@@ -75,7 +75,7 @@ void entrance::operate(vector<vehicle*> vehicles)
 				vehicles.push_back(recieved);
 				tolls_empty = false;
 			}
-		}
+		}*/
 	}
 	reinit_all();
 }
