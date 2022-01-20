@@ -39,7 +39,7 @@ entrance::~entrance()
 	}
 }
 
-void entrance::operate(vector<vehicle*> vehicles)
+void entrance::operate(vector<vehicle*> &vehicles)
 {
 	bool tolls_empty = false;
 	while (vehicles.size() < segment_capacity && tolls_empty == false)
@@ -52,7 +52,7 @@ void entrance::operate(vector<vehicle*> vehicles)
 				break;
 			}
 
-			vehicle* recieved = tolls[i]->recieve_vehicle();
+			vehicle* recieved = tolls[i]->recieve_vehicle(); // Leak is here
 			if (recieved != NULL)
 			{
 				recieved->set_segment(nodeIndex);
@@ -61,7 +61,7 @@ void entrance::operate(vector<vehicle*> vehicles)
 			}
 		}
 
-		/*for (int i = 0; i < digital_tolls.size(); i++)
+		for (int i = 0; i < digital_tolls.size(); i++)
 		{
 			if (vehicles.size() >= segment_capacity)
 			{
@@ -75,7 +75,7 @@ void entrance::operate(vector<vehicle*> vehicles)
 				vehicles.push_back(recieved);
 				tolls_empty = false;
 			}
-		}*/
+		}
 	}
 	reinit_all();
 }
