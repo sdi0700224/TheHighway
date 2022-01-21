@@ -16,7 +16,7 @@ public:
 
 
 	int get_destination() const;
-	void set_segment(const int index);
+	void set_segment(const int in_index);
 	bool get_is_ready() const;
 	void set_is_ready(const bool in_is_ready);
 };

@@ -14,7 +14,7 @@ class segment
 	int K;
 	const int Percent;
 	const int Possition;
-	const int SegmentCapacity;
+	const int Segment_capacity;
 	
 
 	entrance segment_entrance;
@@ -25,7 +25,7 @@ class segment
 
 public:
 
-	segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity, const int in_possition, segment* in_previous, segment* in_next);
+	segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_Segment_capacity, const int in_possition, segment* in_previous, segment* in_next);
 	~segment();
 
 	void enter();

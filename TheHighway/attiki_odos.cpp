@@ -1,7 +1,7 @@
 #include "attiki_odos.h"
 
 attiki_odos::attiki_odos(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity) :
-	NSegs(in_NSegs), K(in_K), Percent(in_Percent), segments(), no_of_vehicles(0), SegmentCapacity(in_SegmentCapacity) //Wrong no_of_veh init
+	NSegs(in_NSegs), K(in_K), Percent(in_Percent), segments(), no_of_vehicles(0), SegmentCapacity(in_SegmentCapacity)
 {
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < in_NSegs; i++)
