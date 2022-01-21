@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
 
     //cout << "Plese enter Maximum Segment Capacity: ";
     //cin >> SegmentCapacity;
-    SegmentCapacity = 100;
+    SegmentCapacity = 50;
     cout << endl << endl;
 
     attiki_odos AttikiOdos(NSegs, K, Percent, SegmentCapacity);

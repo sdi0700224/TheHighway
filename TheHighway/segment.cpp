@@ -106,6 +106,6 @@ segment* segment::set_get_next(segment* in_next)
 	}
 	else
 	{
-		return previousSegment;
+		return nextSegment;
 	}
 }
