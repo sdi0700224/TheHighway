@@ -20,6 +20,7 @@ class highway
 public:
 
 	highway(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity);
+	highway(const highway& in_object);
 	~highway();
 
 	void operate();

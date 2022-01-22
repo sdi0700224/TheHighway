@@ -26,6 +26,7 @@ class segment
 public:
 
 	segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_Segment_capacity, const int in_possition, segment* in_previous, segment* in_next);
+	segment(const segment& in_object);
 	~segment();
 
 	void enter();

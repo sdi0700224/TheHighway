@@ -12,6 +12,15 @@ segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const
 	}
 }
 
+segment::segment(const segment& in_object):
+	NSegs(in_object.NSegs), K(in_object.K), Percent(in_object.Percent), Possition(in_object.Possition), segment_entrance(in_object.segment_entrance), Segment_capacity(in_object.Segment_capacity), previousSegment(in_object.previousSegment), nextSegment(in_object.nextSegment)
+{
+	for (int i = 0; i < in_object.vehicles.size(); i++)
+	{
+		vehicles.push_back(new vehicle(*(in_object.vehicles[i])));
+	}
+}
+
 segment::~segment()
 {
 	for (int i = 0; i < vehicles.size(); i++)
