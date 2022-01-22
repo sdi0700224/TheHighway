@@ -24,6 +24,7 @@ protected:
 public:
 
 	toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs);
+	toll(const toll& in_object);
 	virtual ~toll();
 
 	void reinit();

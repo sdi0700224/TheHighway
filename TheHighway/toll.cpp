@@ -9,6 +9,15 @@ toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
 	}
 }
 
+toll::toll(const toll& in_object) :
+	K(in_object.K), counter(in_object.counter), numberOfVehicles(in_object.numberOfVehicles), NSegs(in_object.NSegs) // waiting_vehicles are not copied here by decission(avoid memmory and overall complexity)
+{
+	for (int i = 0; i < in_object.waiting_vehicles.size(); i++)
+	{
+		add(); //Was hard to deep copy here(pop all out, keep in another vessel and then push in again), prefered to make new vehicles cause toll is a random vehicle generator anyway
+	}
+}
+
 toll::~toll()
 {
 	while(!waiting_vehicles.empty())
