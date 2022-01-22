@@ -143,7 +143,7 @@
     <ClCompile Include="digital_toll.cpp" />
     <ClCompile Include="entrance.cpp" />
     <ClCompile Include="segment.cpp" />
-    <ClCompile Include="TheHighway.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="toll.cpp" />
     <ClCompile Include="vehicle.cpp" />
   </ItemGroup>
