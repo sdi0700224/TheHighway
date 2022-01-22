@@ -1,6 +1,6 @@
-#include "attiki_odos.h"
+#include "highway.h"
 
-attiki_odos::attiki_odos(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity) :
+highway::highway(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity) :
 	NSegs(in_NSegs), K(in_K), Percent(in_Percent), segments(), no_of_vehicles(0), SegmentCapacity(in_SegmentCapacity)
 {
 	srand((unsigned int)time(NULL));
@@ -32,7 +32,7 @@ attiki_odos::attiki_odos(const int in_NSegs, const int in_K, const int in_Percen
 	cout << "Highway operating..\n";
 }
 
-attiki_odos::~attiki_odos()
+highway::~highway()
 {
 	for (int i = 0; i < segments.size(); i++)
 	{
@@ -40,7 +40,7 @@ attiki_odos::~attiki_odos()
 	}
 }
 
-void attiki_odos::operate()
+void highway::operate()
 {
 	for (int i = (int)segments.size() - 1; i >= 0; i--)
 	{

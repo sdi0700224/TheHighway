@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "attiki_odos.h"
+#include "highway.h"
 #include "debug.h"
 
 using namespace std;
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     SegmentCapacity = 50;
     cout << endl << endl;
 
-    attiki_odos AttikiOdos(NSegs, K, Percent, SegmentCapacity);
+    highway AttikiOdos(NSegs, K, Percent, SegmentCapacity);
 
     for (int i = 0; i < N; i++)
     {

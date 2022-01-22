@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class attiki_odos
+class highway
 {
 	const int NSegs;
 	const int K;
@@ -19,8 +19,8 @@ class attiki_odos
 
 public:
 
-	attiki_odos(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity);
-	~attiki_odos();
+	highway(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity);
+	~highway();
 
 	void operate();
 
