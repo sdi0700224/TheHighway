@@ -11,8 +11,8 @@ using namespace std;
 
 class entrance
 {
-	const int segment_capacity;
-	const int nodeIndex;
+	const int Segment_capacity;
+	const int Possition;
 	const int NSegs;
 	vector <toll*> tolls;
 	vector <digital_toll*> digital_tolls;
@@ -21,7 +21,7 @@ class entrance
 
 public:
 
-	entrance(const int in_index, const int toll_number, const int digital_toll_number, const int in_K, const int segment_capacity, const int in_NSegs);
+	entrance(const int in_possition, const int toll_number, const int digital_toll_number, const int in_K, const int segment_capacity, const int in_NSegs);
 	~entrance();
 
 	void operate(vector <vehicle*> &vehicles);

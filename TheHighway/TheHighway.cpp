@@ -55,7 +55,9 @@ int main(int argc, char* argv[])
 
     for (int i = 0; i < N; i++)
     {
+        cout << "\nAttiki Odos is operating..\n" << endl;
         AttikiOdos.operate();
+        std::this_thread::sleep_for(500ms);
     }
 
     return 0;
