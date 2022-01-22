@@ -1,5 +1,4 @@
 #include <iostream>
-#include <thread>
 #include <string>
 #include <vector>
 #include "attiki_odos.h"
@@ -57,7 +56,6 @@ int main(int argc, char* argv[])
     {
         cout << "\nAttiki Odos is operating..\n" << endl;
         AttikiOdos.operate();
-        std::this_thread::sleep_for(500ms);
     }
 
     return 0;
