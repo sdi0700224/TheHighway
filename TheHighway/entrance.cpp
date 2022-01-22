@@ -13,16 +13,30 @@ void entrance::reinit_all()
 }
 
 entrance::entrance(const int in_possition, const int in_toll_number, const int in_digital_toll_number, const int in_K, const int in_segment_capacity, const int in_NSegs):
-	Segment_capacity(in_segment_capacity), Possition(in_possition), tolls(in_toll_number), digital_tolls(in_digital_toll_number), NSegs(in_NSegs)
+	Segment_capacity(in_segment_capacity), Possition(in_possition), NSegs(in_NSegs)
+{
+	for (int i = 0; i < in_toll_number; i++)
+	{
+		tolls.push_back(new toll(in_K, rand() % in_segment_capacity, in_NSegs));
+	}
+
+	for (int i = 0; i < in_digital_toll_number; i++)
+	{
+		digital_tolls.push_back(new digital_toll(in_K, rand() % in_segment_capacity, in_NSegs));
+	}
+}
+
+entrance::entrance(const entrance& in_object):
+	Segment_capacity(in_object.Segment_capacity), Possition(in_object.Possition), NSegs(in_object.NSegs)
 {
 	for (int i = 0; i < tolls.size(); i++)
 	{
-		tolls[i] = new toll(in_K, rand() % in_segment_capacity, in_NSegs);
+		tolls.push_back(new toll(*(in_object.tolls[i])));
 	}
 
 	for (int i = 0; i < digital_tolls.size(); i++)
 	{
-		digital_tolls[i] = new digital_toll(in_K, rand() % in_segment_capacity, in_NSegs);
+		digital_tolls.push_back(new digital_toll(*(in_object.digital_tolls[i])));
 	}
 }
 

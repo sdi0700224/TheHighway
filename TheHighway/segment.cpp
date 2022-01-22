@@ -4,11 +4,12 @@
 
 
 segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_Segment_capacity, const int in_possition, segment* in_previous, segment* in_next) :
-	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), segment_entrance(in_possition, rand() % 5, rand() % 5, in_K, in_Segment_capacity, in_NSegs), Segment_capacity(in_Segment_capacity), previousSegment(in_previous), nextSegment(in_next), vehicles(rand() % in_Segment_capacity)
+	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), segment_entrance(in_possition, rand() % 5, rand() % 5, in_K, in_Segment_capacity, in_NSegs), Segment_capacity(in_Segment_capacity), previousSegment(in_previous), nextSegment(in_next)
 {
-	for (int i = 0; i < vehicles.size(); i++)
+	int initial_vehicles_number = rand() % in_Segment_capacity;
+	for (int i = 0; i < initial_vehicles_number; i++)
 	{
-		vehicles[i] = new vehicle(rand() % in_NSegs, in_possition);
+		vehicles.push_back(new vehicle(rand() % in_NSegs, in_possition));
 	}
 }
 
