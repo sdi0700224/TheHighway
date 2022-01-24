@@ -73,6 +73,7 @@ void segment::pass()
 		if ((*it)->get_is_ready() && (*it)->get_destination() - 1 > Possition && nextSegment->get_no_of_vehicles() < nextSegment->Segment_capacity)
 		{
 			(*it)->set_possition(Possition + 1);
+			(*it)->set_is_ready(false);
 			nextSegment->vehicles.push_back(*it);
 			it = vehicles.erase(it);
 		}
