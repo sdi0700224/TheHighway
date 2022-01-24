@@ -5,7 +5,12 @@
 
 void segment::get_ready_to_exit()
 {
-	//Implement
+	int vehicles_to_get_ready_num = (double)(Percent / 100) * get_no_of_vehicles();
+
+	for (int i = 0; i < vehicles_to_get_ready_num; i++)
+	{
+		vehicles[i]->set_is_ready(true);
+	}
 }
 
 segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_Segment_capacity, const int in_possition, segment* in_previous, segment* in_next) :
@@ -85,7 +90,7 @@ int segment::get_no_of_vehicles()
 
 int segment::operate()
 {
-	cout << "Segment no: " << Possition + 1 << " is operating.." << endl;
+	cout << "\nSegment no: " << Possition + 1 << " is operating.." << endl;
 
 	int starting_car_number = get_no_of_vehicles();
 

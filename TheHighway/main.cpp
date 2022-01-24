@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 
     for (int i = 0; i < N; i++)
     {
-        cout << "\nAttiki Odos is operating..\n" << endl;
+        cout << "\n\nAttiki Odos is operating..\n" << endl;
         AttikiOdos.operate();
     }
 
