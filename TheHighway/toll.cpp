@@ -3,10 +3,7 @@
 toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
 	K(in_K), counter(0), numberOfVehicles(in_numberOfVehicles), NSegs(in_NSegs)
 {
-	for (int i = 0; i < in_numberOfVehicles; i++)
-	{
-		add();
-	}
+	reinit();
 }
 
 toll::toll(const toll& in_object) :
@@ -40,7 +37,8 @@ void toll::substract()
 void toll::reinit()
 {
 	counter = 0;
-	while (waiting_vehicles.size() < numberOfVehicles)
+	int vehicles_to_wait = rand() % (numberOfVehicles + 1);
+	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();
 	}
