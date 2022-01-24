@@ -30,8 +30,7 @@ public:
 
 	void operate(vector <vehicle*> &vehicles);
 	int get_K() const;
-
-
-
+	void increase_limit();
+	void decrease_limit();
 };
 

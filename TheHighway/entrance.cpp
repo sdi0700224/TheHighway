@@ -41,7 +41,7 @@ entrance::entrance(const int in_possition, const int in_toll_number, const int i
 }
 
 entrance::entrance(const entrance& in_object):
-	Segment_capacity(in_object.Segment_capacity), Possition(in_object.Possition), NSegs(in_object.NSegs)
+	Segment_capacity(in_object.Segment_capacity), Possition(in_object.Possition), NSegs(in_object.NSegs), K(in_object.K)
 {
 	for (int i = 0; i < collector_tolls.size(); i++)
 	{
@@ -108,10 +108,31 @@ void entrance::operate(vector<vehicle*> &vehicles)
 			}
 		}
 	}
+	if (max_is_reached())
+	{
+		increase_limit();
+	}
+	else
+	{
+		decrease_limit();
+	}
 	reinit_all();
 }
 
 int entrance::get_K() const
 {
 	return K;
+}
+
+void entrance::increase_limit()
+{
+	K++;
+}
+
+void entrance::decrease_limit()
+{
+	if (K > 1)
+	{
+		K--;
+	}
 }

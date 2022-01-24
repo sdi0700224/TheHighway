@@ -29,7 +29,5 @@ public:
 	virtual void reinit() = 0;
 	virtual vehicle* recieve_vehicle();
 	virtual bool limit_is_reached() = 0;
-	void increase_limit();
-	void decrease_limit();
 };
 

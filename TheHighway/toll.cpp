@@ -52,16 +52,3 @@ vehicle* toll::recieve_vehicle()
 		return NULL;
 	}
 }
-
-void toll::increase_limit()
-{
-	
-}
-
-void toll::decrease_limit()
-{
-	if (belonging_node->get_K() > 1)
-	{
-		
-	}
-}
