@@ -6,9 +6,7 @@ collector_toll::collector_toll(const int in_K, const int in_NSegs) :
 	reinit();
 }
 
-collector_toll::~collector_toll()
-{
-}
+collector_toll::~collector_toll(){}
 
 void collector_toll::reinit()
 {

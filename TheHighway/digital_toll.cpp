@@ -6,9 +6,7 @@ digital_toll::digital_toll(const int in_K, const int in_NSegs):
 	reinit();
 }
 
-digital_toll::~digital_toll()
-{
-}
+digital_toll::~digital_toll(){}
 
 void digital_toll::reinit()
 {

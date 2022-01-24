@@ -15,7 +15,7 @@ class entrance
 	const int Segment_capacity;
 	const int Possition;
 	const int NSegs;
-	vector <collector_toll*> tolls;
+	vector <collector_toll*> collector_tolls;
 	vector <digital_toll*> digital_tolls;
 
 	void reinit_all();

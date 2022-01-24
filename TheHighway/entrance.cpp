@@ -2,9 +2,9 @@
 
 void entrance::reinit_all()
 {
-	for (int i = 0; i < tolls.size(); i++)
+	for (int i = 0; i < collector_tolls.size(); i++)
 	{
-		tolls[i]->reinit();
+		collector_tolls[i]->reinit();
 	}
 	for (int i = 0; i < digital_tolls.size(); i++)
 	{
@@ -17,7 +17,7 @@ entrance::entrance(const int in_possition, const int in_toll_number, const int i
 {
 	for (int i = 0; i < in_toll_number; i++)
 	{
-		tolls.push_back(new collector_toll(in_K, in_NSegs));
+		collector_tolls.push_back(new collector_toll(in_K, in_NSegs));
 	}
 
 	for (int i = 0; i < in_digital_toll_number; i++)
@@ -29,9 +29,9 @@ entrance::entrance(const int in_possition, const int in_toll_number, const int i
 entrance::entrance(const entrance& in_object):
 	Segment_capacity(in_object.Segment_capacity), Possition(in_object.Possition), NSegs(in_object.NSegs)
 {
-	for (int i = 0; i < tolls.size(); i++)
+	for (int i = 0; i < collector_tolls.size(); i++)
 	{
-		tolls.push_back(new collector_toll(*(in_object.tolls[i])));
+		collector_tolls.push_back(new collector_toll(*(in_object.collector_tolls[i])));
 	}
 
 	for (int i = 0; i < digital_tolls.size(); i++)
@@ -42,9 +42,9 @@ entrance::entrance(const entrance& in_object):
 
 entrance::~entrance()
 {
-	for (int i = 0; i < tolls.size(); i++)
+	for (int i = 0; i < collector_tolls.size(); i++)
 	{
-		delete tolls[i];
+		delete collector_tolls[i];
 	}
 
 	for (int i = 0; i < digital_tolls.size(); i++)
@@ -59,14 +59,14 @@ void entrance::operate(vector<vehicle*> &vehicles)
 	while (vehicles.size() < Segment_capacity && tolls_empty == false)
 	{
 		tolls_empty = true;
-		for (int i = 0; i < tolls.size(); i++)
+		for (int i = 0; i < collector_tolls.size(); i++)
 		{
 			if (vehicles.size() >= Segment_capacity)
 			{
 				break;
 			}
 
-			vehicle* recieved = tolls[i]->recieve_vehicle();
+			vehicle* recieved = collector_tolls[i]->recieve_vehicle();
 			if (recieved != NULL)
 			{
 				recieved->set_possition(Possition);
