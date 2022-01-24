@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="collector_toll.cpp" />
     <ClCompile Include="highway.cpp" />
     <ClCompile Include="digital_toll.cpp" />
     <ClCompile Include="entrance.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="collector_toll.h" />
     <ClInclude Include="highway.h" />
     <ClInclude Include="digital_toll.h" />
     <ClInclude Include="entrance.h" />

@@ -37,18 +37,6 @@ void toll::substract()
 	waiting_vehicles.pop_front();
 }
 
-bool toll::limit_is_reached()
-{
-	if (counter < K)
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-}
-
 void toll::reinit()
 {
 	counter = 0;

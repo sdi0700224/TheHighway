@@ -4,6 +4,7 @@
 #include <vector>
 #include "toll.h"
 #include "digital_toll.h"
+#include "collector_toll.h"	
 #include "debug.h"
 
 
@@ -14,7 +15,7 @@ class entrance
 	const int Segment_capacity;
 	const int Possition;
 	const int NSegs;
-	vector <toll*> tolls;
+	vector <collector_toll*> tolls;
 	vector <digital_toll*> digital_tolls;
 
 	void reinit_all();

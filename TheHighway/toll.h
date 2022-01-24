@@ -19,7 +19,7 @@ protected:
 
 	void add();
 	void substract();
-	virtual bool limit_is_reached();
+	virtual bool limit_is_reached() = 0;
 
 public:
 

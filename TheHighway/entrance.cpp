@@ -17,7 +17,7 @@ entrance::entrance(const int in_possition, const int in_toll_number, const int i
 {
 	for (int i = 0; i < in_toll_number; i++)
 	{
-		tolls.push_back(new toll(in_K, rand() % in_segment_capacity, in_NSegs));
+		tolls.push_back(new collector_toll(in_K, rand() % in_segment_capacity, in_NSegs));
 	}
 
 	for (int i = 0; i < in_digital_toll_number; i++)
@@ -31,7 +31,7 @@ entrance::entrance(const entrance& in_object):
 {
 	for (int i = 0; i < tolls.size(); i++)
 	{
-		tolls.push_back(new toll(*(in_object.tolls[i])));
+		tolls.push_back(new collector_toll(*(in_object.tolls[i])));
 	}
 
 	for (int i = 0; i < digital_tolls.size(); i++)
