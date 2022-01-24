@@ -9,7 +9,17 @@ void segment::get_ready_to_exit()
 
 	for (int i = 0; i < vehicles_to_get_ready_num; i++)
 	{
-		vehicles[i]->set_is_ready(true);
+		if (!vehicles[i]->get_is_ready())
+		{
+			vehicles[i]->set_is_ready(true);
+		}
+		else
+		{
+			if (vehicles_to_get_ready_num < get_no_of_vehicles() - 1)
+			{
+				vehicles_to_get_ready_num++;
+			}
+		}
 	}
 }
 
@@ -19,7 +29,8 @@ segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const
 	int initial_vehicles_number = rand() % (in_Segment_capacity + 1);
 	for (int i = 0; i < initial_vehicles_number; i++)
 	{
-		vehicles.push_back(new vehicle(in_possition + (rand() % (in_NSegs -	in_possition)) + 1, in_possition));
+		bool is_ready = rand() % 2 == 0 ? true : false;
+		vehicles.push_back(new vehicle(in_possition + (rand() % (in_NSegs -	in_possition)) + 1, in_possition, is_ready));
 	}
 }
 

@@ -12,7 +12,7 @@ class vehicle
 
 public:
 
-	vehicle(const int in_index, const int in_segment);
+	vehicle(const int in_index, const int in_segment, const bool in_is_ready = false);
 
 
 	int get_destination() const;
