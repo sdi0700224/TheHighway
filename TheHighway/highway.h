@@ -17,6 +17,8 @@ class highway
 	vector <segment*> segments;
 	int no_of_vehicles;
 
+	void connect_segments();
+
 public:
 
 	highway(const int in_NSegs, const int in_K, const int in_Percent, const int in_SegmentCapacity);
