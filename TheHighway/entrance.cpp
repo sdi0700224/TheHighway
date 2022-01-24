@@ -69,7 +69,7 @@ void entrance::operate(vector<vehicle*> &vehicles)
 			vehicle* recieved = tolls[i]->recieve_vehicle(); // Leak is here
 			if (recieved != NULL)
 			{
-				recieved->set_segment(Possition);
+				recieved->set_possition(Possition);
 				vehicles.push_back(recieved);
 				tolls_empty = false;
 			}
@@ -85,7 +85,7 @@ void entrance::operate(vector<vehicle*> &vehicles)
 			vehicle* recieved = digital_tolls[i]->recieve_vehicle();
 			if (recieved != NULL)
 			{
-				recieved->set_segment(Possition);
+				recieved->set_possition(Possition);
 				vehicles.push_back(recieved);
 				tolls_empty = false;
 			}

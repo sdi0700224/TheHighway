@@ -22,6 +22,7 @@ class segment
 	segment* previousSegment;
 	segment* nextSegment;	
 
+	void get_ready_to_exit();
 
 public:
 

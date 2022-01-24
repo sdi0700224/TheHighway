@@ -3,13 +3,18 @@
 #include "digital_toll.h"
 
 
+void segment::get_ready_to_exit()
+{
+	//Implement
+}
+
 segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_Segment_capacity, const int in_possition, segment* in_previous, segment* in_next) :
 	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), segment_entrance(in_possition, rand() % 5, rand() % 5, in_K, in_Segment_capacity, in_NSegs), Segment_capacity(in_Segment_capacity), previousSegment(in_previous), nextSegment(in_next)
 {
-	int initial_vehicles_number = rand() % in_Segment_capacity;
+	int initial_vehicles_number = rand() % (in_Segment_capacity + 1);
 	for (int i = 0; i < initial_vehicles_number; i++)
 	{
-		vehicles.push_back(new vehicle(rand() % in_NSegs, in_possition));
+		vehicles.push_back(new vehicle(in_possition + (rand() % (in_NSegs -	in_possition)) + 1, in_possition));
 	}
 }
 
@@ -39,7 +44,7 @@ void segment::exit()
 {
 	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();)
 	{
-		if ((*it)->get_destination() == Possition)
+		if ((*it)->get_destination() - 1 == Possition)
 		{
 			delete *it;
 			it = vehicles.erase(it);
@@ -60,9 +65,9 @@ void segment::pass()
 
 	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();)
 	{
-		if ((*it)->get_is_ready() && (*it)->get_destination() > Possition && nextSegment->get_no_of_vehicles() < nextSegment->Segment_capacity)
+		if ((*it)->get_is_ready() && (*it)->get_destination() - 1 > Possition && nextSegment->get_no_of_vehicles() < nextSegment->Segment_capacity)
 		{
-			(*it)->set_segment(Possition + 1);
+			(*it)->set_possition(Possition + 1);
 			nextSegment->vehicles.push_back(*it);
 			it = vehicles.erase(it);
 		}
@@ -80,20 +85,25 @@ int segment::get_no_of_vehicles()
 
 int segment::operate()
 {
+	cout << "Segment no: " << Possition + 1 << " is operating.." << endl;
+
 	int starting_car_number = get_no_of_vehicles();
 
+	cout << "Segment's no: " << Possition + 1 << " cars are exiting.." << endl;
 	exit();
 
 	if (previousSegment != NULL)
 	{
+		cout << "Segment's no: " << Possition + 1 << " cars are passing to the next segment.." << endl;
 		previousSegment->pass();
 	}
 
+	cout << "Cars are entering to the Segment no: " << Possition + 1 << " from previous segment" << endl;
 	enter();
 
-	int ending_car_number = get_no_of_vehicles();
+	get_ready_to_exit();
 
-	return ending_car_number - starting_car_number;
+	return get_no_of_vehicles() - starting_car_number;
 }
 
 segment* segment::set_get_previous(segment* in_previous)

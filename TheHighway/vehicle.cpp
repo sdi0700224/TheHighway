@@ -10,7 +10,7 @@ int vehicle::get_destination() const
 	return destination_node_index;
 }
 
-void vehicle::set_segment(const int in_index)
+void vehicle::set_possition(const int in_index)
 {
 	current_segment_index = in_index;
 }
