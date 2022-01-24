@@ -9,7 +9,7 @@ void segment::get_ready_to_exit()
 }
 
 segment::segment(const int in_NSegs, const int in_K, const int in_Percent, const int in_Segment_capacity, const int in_possition, segment* in_previous, segment* in_next) :
-	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), segment_entrance(in_possition, rand() % 5, rand() % 5, in_K, in_Segment_capacity, in_NSegs), Segment_capacity(in_Segment_capacity), previousSegment(in_previous), nextSegment(in_next)
+	NSegs(in_NSegs), K(in_K), Percent(in_Percent), Possition(in_possition), segment_entrance(in_possition, (rand() % 5) + 1, (rand() % 5) + 1, in_K, in_Segment_capacity, in_NSegs), Segment_capacity(in_Segment_capacity), previousSegment(in_previous), nextSegment(in_next)
 {
 	int initial_vehicles_number = rand() % (in_Segment_capacity + 1);
 	for (int i = 0; i < initial_vehicles_number; i++)
@@ -94,11 +94,11 @@ int segment::operate()
 
 	if (previousSegment != NULL)
 	{
-		cout << "Segment's no: " << Possition + 1 << " cars are passing to the next segment.." << endl;
+		cout << "Cars are entering to the Segment no: " << Possition + 1 << " from previous segment" << endl;
 		previousSegment->pass();
 	}
 
-	cout << "Cars are entering to the Segment no: " << Possition + 1 << " from previous segment" << endl;
+	cout << "Cars are entering to the Segment no: " << Possition + 1 << " from tolls" << endl;
 	enter();
 
 	get_ready_to_exit();
