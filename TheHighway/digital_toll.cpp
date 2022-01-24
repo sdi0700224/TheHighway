@@ -1,7 +1,8 @@
 #include "digital_toll.h"
+#include "entrance.h"
 
-digital_toll::digital_toll(const int in_K, const int in_NSegs):
-	toll(in_K, in_NSegs)
+digital_toll::digital_toll(const entrance* in_belonging_node, const int in_NSegs):
+	toll(in_belonging_node, in_NSegs)
 {
 	reinit();
 }
@@ -11,7 +12,7 @@ digital_toll::~digital_toll(){}
 void digital_toll::reinit()
 {
 	counter = 0;
-	int vehicles_to_wait = 2 * K + rand() % (2 * K + 1);
+	int vehicles_to_wait = 2 * belonging_node->get_K() + rand() % (2 * belonging_node->get_K() + 1);
 	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();
@@ -20,7 +21,7 @@ void digital_toll::reinit()
 
 bool digital_toll::limit_is_reached()
 {
-	if (counter < 2 * K)
+	if (counter < 2 * belonging_node->get_K())
 	{
 		return false;
 	}

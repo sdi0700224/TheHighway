@@ -1,10 +1,11 @@
 #include "toll.h"
+#include "entrance.h"
 
-toll::toll(const int in_K, const int in_NSegs):
-	K(in_K), counter(0), NSegs(in_NSegs){}
+toll::toll(const entrance* in_belonging_node, const int in_NSegs):
+	belonging_node(in_belonging_node), counter(0), NSegs(in_NSegs){}
 
 toll::toll(const toll& in_object) :
-	K(in_object.K), counter(in_object.counter), NSegs(in_object.NSegs) 
+	belonging_node(in_object.belonging_node), counter(in_object.counter), NSegs(in_object.NSegs)
 {
 	for (int i = 0; i < in_object.waiting_vehicles.size(); i++)
 	{
@@ -49,5 +50,18 @@ vehicle* toll::recieve_vehicle()
 	{
 		cout << "Toll limit has been reached for this operation cycle.." << endl;
 		return NULL;
+	}
+}
+
+void toll::increase_limit()
+{
+	
+}
+
+void toll::decrease_limit()
+{
+	if (belonging_node->get_K() > 1)
+	{
+		
 	}
 }

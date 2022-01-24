@@ -1,7 +1,8 @@
 #include "collector_toll.h"
+#include "entrance.h"
 
-collector_toll::collector_toll(const int in_K, const int in_NSegs) :
-	toll(in_K, in_NSegs)
+collector_toll::collector_toll(const entrance* in_belonging_node, const int in_NSegs) :
+	toll(in_belonging_node, in_NSegs)
 {
 	reinit();
 }
@@ -11,7 +12,7 @@ collector_toll::~collector_toll(){}
 void collector_toll::reinit()
 {
 	counter = 0;
-	int vehicles_to_wait = K + rand() % (K + 1);
+	int vehicles_to_wait = belonging_node->get_K() + rand() % (belonging_node->get_K() + 1);
 	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();
@@ -20,7 +21,7 @@ void collector_toll::reinit()
 
 bool collector_toll::limit_is_reached()
 {
-	if (counter < K)
+	if (counter < belonging_node->get_K())
 	{
 		return false;
 	}

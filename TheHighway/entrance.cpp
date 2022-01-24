@@ -12,17 +12,31 @@ void entrance::reinit_all()
 	}
 }
 
+bool entrance::max_is_reached()
+{
+	bool is_reached = true;
+	for (int i = 0; i < collector_tolls.size(); i++)
+	{
+		is_reached &= collector_tolls[i]->limit_is_reached();
+	}
+	for (int i = 0; i < digital_tolls.size(); i++)
+	{
+		is_reached &= digital_tolls[i]->limit_is_reached();
+	}
+	return is_reached;
+}
+
 entrance::entrance(const int in_possition, const int in_toll_number, const int in_digital_toll_number, const int in_K, const int in_segment_capacity, const int in_NSegs):
-	Segment_capacity(in_segment_capacity), Possition(in_possition), NSegs(in_NSegs)
+	Segment_capacity(in_segment_capacity), Possition(in_possition), NSegs(in_NSegs), K(in_K)
 {
 	for (int i = 0; i < in_toll_number; i++)
 	{
-		collector_tolls.push_back(new collector_toll(in_K, in_NSegs));
+		collector_tolls.push_back(new collector_toll(this, in_NSegs));
 	}
 
 	for (int i = 0; i < in_digital_toll_number; i++)
 	{
-		digital_tolls.push_back(new digital_toll(in_K, in_NSegs));
+		digital_tolls.push_back(new digital_toll(this, in_NSegs));
 	}
 }
 
@@ -95,4 +109,9 @@ void entrance::operate(vector<vehicle*> &vehicles)
 		}
 	}
 	reinit_all();
+}
+
+int entrance::get_K() const
+{
+	return K;
 }

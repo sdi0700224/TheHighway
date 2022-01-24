@@ -15,10 +15,12 @@ class entrance
 	const int Segment_capacity;
 	const int Possition;
 	const int NSegs;
+	int K;
 	vector <collector_toll*> collector_tolls;
 	vector <digital_toll*> digital_tolls;
 
 	void reinit_all();
+	bool max_is_reached();
 
 public:
 
@@ -27,6 +29,7 @@ public:
 	~entrance();
 
 	void operate(vector <vehicle*> &vehicles);
+	int get_K() const;
 
 
 
