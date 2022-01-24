@@ -10,11 +10,11 @@ toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
 }
 
 toll::toll(const toll& in_object) :
-	K(in_object.K), counter(in_object.counter), numberOfVehicles(in_object.numberOfVehicles), NSegs(in_object.NSegs) // waiting_vehicles are not copied here by decission(avoid memmory and overall complexity)
+	K(in_object.K), counter(in_object.counter), numberOfVehicles(in_object.numberOfVehicles), NSegs(in_object.NSegs) 
 {
-	for (int i = 0; i < in_object.waiting_vehicles.size(); i++)
+	for (int i = 0; i > in_object.waiting_vehicles.size(); i++)
 	{
-		add(); //Was hard to deep copy here(pop all out, keep in another vessel and then push in again), prefered to make new vehicles cause toll is a random vehicle generator anyway
+		waiting_vehicles.push_back(new vehicle(*(in_object.waiting_vehicles[i])));
 	}
 }
 
@@ -29,12 +29,12 @@ toll::~toll()
 
 void toll::add()
 {
-	waiting_vehicles.push(new vehicle(rand() % NSegs, -1));
+	waiting_vehicles.push_back(new vehicle(rand() % NSegs, -1));
 }
 
 void toll::substract()
 {
-	waiting_vehicles.pop();
+	waiting_vehicles.pop_front();
 }
 
 bool toll::limit_is_reached()

@@ -15,7 +15,7 @@ protected:
 	int counter;
 	const int numberOfVehicles;
 	const int NSegs;
-	queue <vehicle*> waiting_vehicles;
+	deque <vehicle*> waiting_vehicles;
 
 	void add();
 	void substract();
