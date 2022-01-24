@@ -9,7 +9,7 @@ toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
 toll::toll(const toll& in_object) :
 	K(in_object.K), counter(in_object.counter), numberOfVehicles(in_object.numberOfVehicles), NSegs(in_object.NSegs) 
 {
-	for (int i = 0; i > in_object.waiting_vehicles.size(); i++)
+	for (int i = 0; i < in_object.waiting_vehicles.size(); i++)
 	{
 		waiting_vehicles.push_back(new vehicle(*(in_object.waiting_vehicles[i])));
 	}
