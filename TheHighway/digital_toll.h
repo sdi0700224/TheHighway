@@ -8,11 +8,13 @@ class digital_toll :
 {
 protected:
 
-    bool limit_is_reached();
+    bool limit_is_reached() override;
 
 public:
 
     digital_toll(const int in_K, const int in_NSegs);
     virtual ~digital_toll();
+
+    void reinit() override;
 };
 

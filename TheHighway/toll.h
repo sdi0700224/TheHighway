@@ -26,7 +26,7 @@ public:
 	toll(const toll& in_object);
 	virtual ~toll();
 
-	void reinit();
+	virtual void reinit() = 0;
 	virtual vehicle* recieve_vehicle();
 
 

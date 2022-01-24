@@ -3,10 +3,21 @@
 collector_toll::collector_toll(const int in_K, const int in_NSegs) :
 	toll(in_K, in_NSegs)
 {
+	reinit();
 }
 
 collector_toll::~collector_toll()
 {
+}
+
+void collector_toll::reinit()
+{
+	counter = 0;
+	int vehicles_to_wait = rand() % ((2 * K) + 1);
+	while (waiting_vehicles.size() < vehicles_to_wait)
+	{
+		add();
+	}
 }
 
 bool collector_toll::limit_is_reached()

@@ -3,10 +3,21 @@
 digital_toll::digital_toll(const int in_K, const int in_NSegs):
 	toll(in_K, in_NSegs)
 {
+	reinit();
 }
 
 digital_toll::~digital_toll()
 {
+}
+
+void digital_toll::reinit()
+{
+	counter = 0;
+	int vehicles_to_wait = rand() % ((2 * K) + 1);
+	while (waiting_vehicles.size() < vehicles_to_wait)
+	{
+		add();
+	}
 }
 
 bool digital_toll::limit_is_reached()
