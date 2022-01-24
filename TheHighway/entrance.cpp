@@ -4,11 +4,11 @@ void entrance::reinit_all()
 {
 	for (int i = 0; i < tolls.size(); i++)
 	{
-		tolls[i]->reinit(); //reloads and make count 0
+		tolls[i]->reinit();
 	}
 	for (int i = 0; i < digital_tolls.size(); i++)
 	{
-		digital_tolls[i]->reinit(); //reloads and make count 0
+		digital_tolls[i]->reinit();
 	}
 }
 
@@ -66,7 +66,7 @@ void entrance::operate(vector<vehicle*> &vehicles)
 				break;
 			}
 
-			vehicle* recieved = tolls[i]->recieve_vehicle(); // Leak is here
+			vehicle* recieved = tolls[i]->recieve_vehicle();
 			if (recieved != NULL)
 			{
 				recieved->set_possition(Possition);
@@ -77,17 +77,20 @@ void entrance::operate(vector<vehicle*> &vehicles)
 
 		for (int i = 0; i < digital_tolls.size(); i++)
 		{
-			if (vehicles.size() >= Segment_capacity)
+			for (int j = 0; j < 2; j++)
 			{
-				break;
-			}
+				if (vehicles.size() >= Segment_capacity)
+				{
+					break;
+				}
 
-			vehicle* recieved = digital_tolls[i]->recieve_vehicle();
-			if (recieved != NULL)
-			{
-				recieved->set_possition(Possition);
-				vehicles.push_back(recieved);
-				tolls_empty = false;
+				vehicle* recieved = digital_tolls[i]->recieve_vehicle();
+				if (recieved != NULL)
+				{
+					recieved->set_possition(Possition);
+					vehicles.push_back(recieved);
+					tolls_empty = false;
+				}
 			}
 		}
 	}
