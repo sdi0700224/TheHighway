@@ -17,12 +17,12 @@ entrance::entrance(const int in_possition, const int in_toll_number, const int i
 {
 	for (int i = 0; i < in_toll_number; i++)
 	{
-		tolls.push_back(new collector_toll(in_K, rand() % in_segment_capacity, in_NSegs));
+		tolls.push_back(new collector_toll(in_K, in_NSegs));
 	}
 
 	for (int i = 0; i < in_digital_toll_number; i++)
 	{
-		digital_tolls.push_back(new digital_toll(in_K, rand() % in_segment_capacity, in_NSegs));
+		digital_tolls.push_back(new digital_toll(in_K, in_NSegs));
 	}
 }
 

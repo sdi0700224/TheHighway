@@ -1,13 +1,13 @@
 #include "toll.h"
 
-toll::toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs) :
-	K(in_K), counter(0), numberOfVehicles(in_numberOfVehicles), NSegs(in_NSegs)
+toll::toll(const int in_K, const int in_NSegs):
+	K(in_K), counter(0), NSegs(in_NSegs)
 {
 	reinit();
 }
 
 toll::toll(const toll& in_object) :
-	K(in_object.K), counter(in_object.counter), numberOfVehicles(in_object.numberOfVehicles), NSegs(in_object.NSegs) 
+	K(in_object.K), counter(in_object.counter), NSegs(in_object.NSegs) 
 {
 	for (int i = 0; i < in_object.waiting_vehicles.size(); i++)
 	{
@@ -37,7 +37,7 @@ void toll::substract()
 void toll::reinit()
 {
 	counter = 0;
-	int vehicles_to_wait = rand() % (numberOfVehicles + 1);
+	int vehicles_to_wait = rand() % ((2 * K) + 1);
 	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();

@@ -97,7 +97,7 @@ void segment::pass()
 
 int segment::get_no_of_vehicles()
 {
-	return vehicles.size();
+	return (int)vehicles.size();
 }
 
 int segment::operate()

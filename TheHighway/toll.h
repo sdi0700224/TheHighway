@@ -13,7 +13,6 @@ protected:
 
 	int K;
 	int counter;
-	const int numberOfVehicles;
 	const int NSegs;
 	deque <vehicle*> waiting_vehicles;
 
@@ -23,7 +22,7 @@ protected:
 
 public:
 
-	toll(const int in_K, const int in_numberOfVehicles, const int in_NSegs);
+	toll(const int in_K, const int in_NSegs);
 	toll(const toll& in_object);
 	virtual ~toll();
 
