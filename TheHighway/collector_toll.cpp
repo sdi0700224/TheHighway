@@ -13,7 +13,7 @@ collector_toll::~collector_toll()
 void collector_toll::reinit()
 {
 	counter = 0;
-	int vehicles_to_wait = rand() % ((2 * K) + 1);
+	int vehicles_to_wait = K + rand() % (K + 1);
 	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();

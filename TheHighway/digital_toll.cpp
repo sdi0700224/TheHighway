@@ -13,7 +13,7 @@ digital_toll::~digital_toll()
 void digital_toll::reinit()
 {
 	counter = 0;
-	int vehicles_to_wait = rand() % ((2 * K) + 1);
+	int vehicles_to_wait = 2 * K + rand() % (2 * K + 1);
 	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();
