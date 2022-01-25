@@ -136,3 +136,17 @@ void entrance::decrease_limit()
 		K--;
 	}
 }
+
+bool entrance::is_empty()
+{
+	bool is_empty = true;
+	for (int i = 0; i < collector_tolls.size(); i++)
+	{
+		is_empty &= collector_tolls.empty();		
+	}
+	for (int i = 0; i < digital_tolls.size(); i++)
+	{
+		is_empty &= digital_tolls.empty();
+	}
+	return is_empty;
+}

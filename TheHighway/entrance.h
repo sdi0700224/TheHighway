@@ -32,5 +32,6 @@ public:
 	int get_K() const;
 	void increase_limit();
 	void decrease_limit();
+	bool is_empty();
 };
 

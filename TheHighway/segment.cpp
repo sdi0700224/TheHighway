@@ -120,6 +120,11 @@ int segment::operate()
 
 	get_ready_to_exit();
 
+	if (!segment_entrance.is_empty())
+	{
+		cout << "Delays in Node: " << Possition + 2 << endl;
+	}
+
 	return get_no_of_vehicles() - starting_car_number;
 }
 
