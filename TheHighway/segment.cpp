@@ -119,15 +119,22 @@ int segment::operate()
 	enter();
 
 	
-
+	bool all_ok = true;
 	if (!segment_entrance.is_empty())
 	{
 		cout << "Delays in Node: " << Possition + 2 << endl;
+		all_ok = false;
 	}
 
 	if (previousSegment != NULL && previousSegment->ready_vehicles_exist())
 	{
 		cout << "Delays after Node: " << Possition + 2 << endl;
+		all_ok = false;
+	}
+
+	if (all_ok)
+	{
+		cout << "Keep safety distance at segment after Node: " << Possition + 2 << endl;
 	}
 
 	get_ready_to_exit();
