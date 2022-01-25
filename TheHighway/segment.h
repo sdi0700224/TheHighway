@@ -38,5 +38,6 @@ public:
 
 	segment* set_get_previous(segment* in_previous = NULL);
 	segment* set_get_next(segment* in_next = NULL);
+	bool ready_vehicles_exist();
 };
 

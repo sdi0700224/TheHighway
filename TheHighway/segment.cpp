@@ -118,13 +118,19 @@ int segment::operate()
 	cout << "Cars are entering to the Segment no: " << Possition + 1 << " from tolls" << endl;
 	enter();
 
-	get_ready_to_exit();
+	
 
 	if (!segment_entrance.is_empty())
 	{
 		cout << "Delays in Node: " << Possition + 2 << endl;
 	}
 
+	if (previousSegment != NULL && previousSegment->ready_vehicles_exist())
+	{
+		cout << "Delays after Node: " << Possition + 2 << endl;
+	}
+
+	get_ready_to_exit();
 	return get_no_of_vehicles() - starting_car_number;
 }
 
@@ -150,4 +156,15 @@ segment* segment::set_get_next(segment* in_next)
 	{
 		return nextSegment;
 	}
+}
+
+bool segment::ready_vehicles_exist()
+{
+	bool exist = true;
+
+	for (int i = 0; i < vehicles.size(); i++)
+	{
+		exist &= vehicles[i]->get_is_ready();
+	}
+	return exist;
 }
