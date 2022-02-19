@@ -12,7 +12,7 @@ collector_toll::~collector_toll(){}
 void collector_toll::reinit()
 {
 	counter = 0;
-	int vehicles_to_wait = belonging_node->get_K() + rand() % (belonging_node->get_K() + 1); //Ask to adjust if needed
+	int vehicles_to_wait = belonging_node->get_K() + rand() % (belonging_node->get_K() + 1);
 	while (waiting_vehicles.size() < vehicles_to_wait)
 	{
 		add();

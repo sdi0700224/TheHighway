@@ -108,7 +108,7 @@ int entrance::operate(vector<vehicle*> &vehicles)
 			}
 		}
 	}
-	if (max_is_reached()) // Ask if always limit is changing?
+	if (max_is_reached())
 	{
 		increase_limit();
 	}
