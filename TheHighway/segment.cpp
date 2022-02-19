@@ -5,7 +5,7 @@
 
 void segment::get_ready_to_exit()
 {
-	int vehicles_to_get_ready_num = (double)(Percent / 100) * get_no_of_vehicles(); //Ask to adjust if needed, if is considered random
+	int vehicles_to_get_ready_num = (double)(Percent / 100) * get_no_of_vehicles();
 
 	for (int i = 0; i < vehicles_to_get_ready_num; i++)
 	{
