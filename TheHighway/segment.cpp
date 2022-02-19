@@ -79,7 +79,7 @@ void segment::pass()
 		return;
 	}
 
-	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();) // Ask if it consider random
+	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();)
 	{
 		if ((*it)->get_is_ready() && (*it)->get_destination() - 1 > Possition && nextSegment->get_no_of_vehicles() < nextSegment->Segment_capacity)
 		{
@@ -103,7 +103,6 @@ int segment::get_no_of_vehicles()
 int segment::operate()
 {
 	int cur_number_of_vehicles;
-	int debug = get_no_of_vehicles();
 
 	cout << "\nSegment no: " << Possition + 1 << " is operating.." << endl;
 
@@ -111,14 +110,12 @@ int segment::operate()
 
 	cout << "Segment's no: " << Possition + 1 << " cars are exiting.." << endl;
 	exit();
-	debug = get_no_of_vehicles();
 
 	cur_number_of_vehicles = get_no_of_vehicles();
 	if (previousSegment != NULL)
 	{
 		cout << "Cars are entering to the Segment no: " << Possition + 1 << " from previous segment" << endl;
 		previousSegment->pass();
-		debug = get_no_of_vehicles();
 	}
 	int num_of_vihicles_passed_from_prev_seg = get_no_of_vehicles() - cur_number_of_vehicles;
 
@@ -127,7 +124,6 @@ int segment::operate()
 	cur_number_of_vehicles = get_no_of_vehicles();
 	int waiting_num_of_vehicles = enter();
 	int num_of_vihicles_entered_from_entrance = get_no_of_vehicles() - cur_number_of_vehicles;
-	debug = get_no_of_vehicles();
 
 	
 	bool all_ok = true;
@@ -147,9 +143,7 @@ int segment::operate()
 	{
 		cout << "Keep safety distance at segment after Node: " << Possition + 2 << endl;
 	}
-	debug = get_no_of_vehicles();
 	get_ready_to_exit();
-	debug = get_no_of_vehicles();
 	return get_no_of_vehicles() - starting_car_number - num_of_vihicles_passed_from_prev_seg;
 }
 
