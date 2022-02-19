@@ -52,3 +52,8 @@ vehicle* toll::recieve_vehicle()
 		return NULL;
 	}
 }
+
+bool toll::toll_is_empty() const
+{
+	return waiting_vehicles.empty();
+}

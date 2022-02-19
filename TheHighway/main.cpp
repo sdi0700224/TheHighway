@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 
     //cout << "Plese enter Maximum Segment Capacity: ";
     //cin >> SegmentCapacity;
-    SegmentCapacity = 100;
+    SegmentCapacity = 10;
     cout << endl << endl;
 
     highway AttikiOdos(NSegs, K, Percent, SegmentCapacity);

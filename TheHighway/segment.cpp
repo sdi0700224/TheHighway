@@ -5,7 +5,7 @@
 
 void segment::get_ready_to_exit()
 {
-	int vehicles_to_get_ready_num = (double)(Percent / 100) * get_no_of_vehicles();
+	int vehicles_to_get_ready_num = (double)(Percent / 100) * get_no_of_vehicles(); //Ask to adjust if needed, if is considered random
 
 	for (int i = 0; i < vehicles_to_get_ready_num; i++)
 	{
@@ -51,9 +51,9 @@ segment::~segment()
 	}
 }
 
-void segment::enter()
+int segment::enter()
 {
-	segment_entrance.operate(vehicles);
+	return segment_entrance.operate(vehicles);
 }
 
 void segment::exit()
@@ -79,7 +79,7 @@ void segment::pass()
 		return;
 	}
 
-	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();)
+	for (vector<vehicle*>::iterator it = vehicles.begin(); it != vehicles.end();) // Ask if it consider random
 	{
 		if ((*it)->get_is_ready() && (*it)->get_destination() - 1 > Possition && nextSegment->get_no_of_vehicles() < nextSegment->Segment_capacity)
 		{
@@ -102,6 +102,8 @@ int segment::get_no_of_vehicles()
 
 int segment::operate()
 {
+	int cur_number_of_vehicles;
+
 	cout << "\nSegment no: " << Possition + 1 << " is operating.." << endl;
 
 	int starting_car_number = get_no_of_vehicles();
@@ -109,24 +111,29 @@ int segment::operate()
 	cout << "Segment's no: " << Possition + 1 << " cars are exiting.." << endl;
 	exit();
 
+	cur_number_of_vehicles = get_no_of_vehicles();
 	if (previousSegment != NULL)
 	{
 		cout << "Cars are entering to the Segment no: " << Possition + 1 << " from previous segment" << endl;
 		previousSegment->pass();
 	}
+	int num_of_vihicles_passed_from_prev_seg = get_no_of_vehicles() - cur_number_of_vehicles;
 
 	cout << "Cars are entering to the Segment no: " << Possition + 1 << " from tolls" << endl;
-	enter();
+
+	cur_number_of_vehicles = get_no_of_vehicles();
+	int waiting_num_of_vehicles = enter();
+	int num_of_vihicles_entered_from_entrance = get_no_of_vehicles() - cur_number_of_vehicles;
 
 	
 	bool all_ok = true;
-	if (!segment_entrance.is_empty())
+	if (num_of_vihicles_entered_from_entrance < waiting_num_of_vehicles)
 	{
-		cout << "Delays in Node: " << Possition + 2 << endl;
+		cout << "Delays in the entrance of Node: " << Possition + 2 << endl;
 		all_ok = false;
 	}
 
-	if (previousSegment != NULL && previousSegment->ready_vehicles_exist())
+	if (previousSegment != NULL && (num_of_vihicles_passed_from_prev_seg < previousSegment->get_ready_vehicles_num()))
 	{
 		cout << "Delays after Node: " << Possition + 2 << endl;
 		all_ok = false;
@@ -165,13 +172,26 @@ segment* segment::set_get_next(segment* in_next)
 	}
 }
 
-bool segment::ready_vehicles_exist()
+int segment::get_ready_vehicles_num() const
 {
-	bool exist = true;
+	int counter = 0;
+	for (int i = 0; i < vehicles.size(); i++)
+	{
+		if (vehicles[i]->get_is_ready())
+		{
+			counter++;
+		}
+	}
+	return counter;
+}
+
+bool segment::ready_vehicles_exist() const
+{
+	bool exist = false;
 
 	for (int i = 0; i < vehicles.size(); i++)
 	{
-		exist &= vehicles[i]->get_is_ready();
+		exist |= vehicles[i]->get_is_ready();
 	}
 	return exist;
 }

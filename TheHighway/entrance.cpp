@@ -23,7 +23,7 @@ bool entrance::max_is_reached()
 	{
 		is_reached &= digital_tolls[i]->limit_is_reached();
 	}
-	return is_reached;
+	return is_reached; //Return true if everything is true
 }
 
 entrance::entrance(const int in_possition, const int in_toll_number, const int in_digital_toll_number, const int in_K, const int in_segment_capacity, const int in_NSegs):
@@ -67,7 +67,7 @@ entrance::~entrance()
 	}
 }
 
-void entrance::operate(vector<vehicle*> &vehicles)
+int entrance::operate(vector<vehicle*> &vehicles)
 {
 	bool tolls_empty = false;
 	while (vehicles.size() < Segment_capacity && tolls_empty == false)
@@ -108,7 +108,7 @@ void entrance::operate(vector<vehicle*> &vehicles)
 			}
 		}
 	}
-	if (max_is_reached())
+	if (max_is_reached()) // Ask if always limit is changing?
 	{
 		increase_limit();
 	}
@@ -116,7 +116,9 @@ void entrance::operate(vector<vehicle*> &vehicles)
 	{
 		decrease_limit();
 	}
+	int cur_num_of_vehicles = get_num_of_vehicles();
 	reinit_all();
+	return cur_num_of_vehicles;
 }
 
 int entrance::get_K() const
@@ -137,16 +139,21 @@ void entrance::decrease_limit()
 	}
 }
 
-bool entrance::is_empty()
+int entrance::get_num_of_vehicles() const
+{
+	return collector_tolls.size() + digital_tolls.size();
+}
+
+bool entrance::is_empty() const
 {
 	bool is_empty = true;
 	for (int i = 0; i < collector_tolls.size(); i++)
 	{
-		is_empty &= collector_tolls.empty();		
+		is_empty &= collector_tolls[i]->toll_is_empty();		
 	}
 	for (int i = 0; i < digital_tolls.size(); i++)
 	{
-		is_empty &= digital_tolls.empty();
+		is_empty &= digital_tolls[i]->toll_is_empty();
 	}
 	return is_empty;
 }

@@ -30,7 +30,7 @@ public:
 	segment(const segment& in_object);
 	~segment();
 
-	void enter();
+	int enter();
 	void exit();
 	void pass();
 	int get_no_of_vehicles();
@@ -38,6 +38,7 @@ public:
 
 	segment* set_get_previous(segment* in_previous = NULL);
 	segment* set_get_next(segment* in_next = NULL);
-	bool ready_vehicles_exist();
+	bool ready_vehicles_exist() const;
+	int get_ready_vehicles_num() const;
 };
 

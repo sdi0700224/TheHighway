@@ -28,10 +28,11 @@ public:
 	entrance(const entrance& in_object);
 	~entrance();
 
-	void operate(vector <vehicle*> &vehicles);
+	int operate(vector <vehicle*> &vehicles);
 	int get_K() const;
 	void increase_limit();
 	void decrease_limit();
-	bool is_empty();
+	bool is_empty() const;
+	int get_num_of_vehicles() const;
 };
 
