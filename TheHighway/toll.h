@@ -27,7 +27,7 @@ public:
 	virtual ~toll();
 
 	virtual void reinit() = 0;
-	virtual vehicle* recieve_vehicle();
+	vehicle* recieve_vehicle();
 	virtual bool limit_is_reached() const = 0;
 	bool toll_is_empty() const;
 };
