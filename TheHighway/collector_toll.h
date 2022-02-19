@@ -12,5 +12,5 @@ public:
     virtual ~collector_toll();
 
     void reinit() override;
-    bool limit_is_reached() override;
+    bool limit_is_reached() const override;
 };

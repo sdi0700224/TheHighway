@@ -19,7 +19,7 @@ void digital_toll::reinit()
 	}
 }
 
-bool digital_toll::limit_is_reached()
+bool digital_toll::limit_is_reached() const
 {
 	if (counter < 2 * belonging_node->get_K())
 	{

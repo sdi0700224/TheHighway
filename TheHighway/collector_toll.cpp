@@ -19,7 +19,7 @@ void collector_toll::reinit()
 	}
 }
 
-bool collector_toll::limit_is_reached()
+bool collector_toll::limit_is_reached() const
 {
 	if (counter < belonging_node->get_K())
 	{
