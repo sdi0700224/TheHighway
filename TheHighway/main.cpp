@@ -56,7 +56,6 @@ int main(int argc, char* argv[])
         cout << "\n\nAttiki Odos is operating..\n" << endl;
         AttikiOdos.operate();
     }
-
     return 0;
 }
 
